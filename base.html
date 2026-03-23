@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/menu.css') }}"
+    />
+    <!-- <link rel="stylesheet"href="{{ url_for('static', filename='css/login.css') }}"/> -->
+    {% block extra_css %}{% endblock %}
+    <!-- <script src="{{ url_for('static', filename='js/chart.js')}}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="{{ url_for('homepage')}}">
+        <img
+          src="{{ url_for('static', filename='img/logo.jpg') }}"
+          class="logo"
+          alt="Logo"
+          width="48"
+        />
+      </a>
+    
+    <!-- <nav id="full-menu">
+      <div class="menu">
+        <a href="{{ url_for('homepage')}}">Home</a>
+        <a href="{{ url_for('products')}}">Our Products</a>
+        <a href="{{ url_for('services')}}">Our Services</a>
+        <a href="{{ url_for('dashboard')}}">Dashboard</a>
+        <a href="{{ url_for('charts')}}">Charts</a>
+        <a href="{{ url_for('calculator')}}">Track Your Energy Use</a>
+        <a href="{{ url_for('help')}}">Help</a>
+        <a href="{{( url_for('login'))}}">Sign In</a>
+        <a href="{{ url_for('contact')}}">Contact Us</a>
+      </div>
+    </nav> -->
+    {% if current_user.is_authenticated %}
+    <nav id="full-menu">
+      <div class="menu">
+        <a href="{{ url_for('homepage')}}">Home</a>
+        <a href="{{ url_for('products')}}">Our Products</a>
+        <a href="{{ url_for('services')}}">Our Services</a>
+        <a href="{{ url_for('dashboard')}}">Dashboard</a>
+        <a href="{{ url_for('charts')}}">Charts</a>
+        <a href="{{ url_for('calculator')}}">Track Your Energy Use</a>
+        <a href="{{ url_for('help')}}">Help</a>
+        <a href="{{( url_for('logout'))}}">Sign Out</a>
+        <a href="{{ url_for('contact')}}">Contact Us</a>
+      </div>
+    </nav>
+
+    {% else %}
+    <nav id="full-menu">
+      <div class="menu">
+        <a href="{{ url_for('homepage')}}">Home</a>
+        <a href="{{ url_for('products')}}">Our Products</a>
+        <a href="{{ url_for('services')}}">Our Services</a>
+        <a href="{{ url_for('dashboard')}}">Dashboard</a>
+        <a href="{{ url_for('charts')}}">Charts</a>
+        <a href="{{ url_for('calculator')}}">Track Your Energy Use</a>
+        <a href="{{ url_for('help')}}">Help</a>
+        <a href="{{( url_for('login'))}}">Sign In</a>
+        <a href="{{ url_for('contact')}}">Contact Us</a>
+      </div>
+    </nav>
+    {% endif%}
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <div class="footer-content">
+        <section>
+          <h3>Contact us</h3>
+          <a href="{{ url_for('contact') }}">Contact</a>
+          <a href="{{ url_for('help') }}">Help & support</a>
+          <a href="{{ url_for('homepage') }}">Complaints</a>
+          <a href="{{ url_for('homepage') }}">Careers</a>
+        </section>
+
+        <section>
+          <h3>About us</h3>
+          <a href="{{ url_for('homepage') }}">Our story</a>
+          <a href="{{ url_for('carb_footprint') }}">Carbon Footprint</a>
+        </section>
+        <section>
+          <a href="#">
+            <img src="/static/img/apple.png" alt="" />
+          </a>
+          <a href="#">
+            <img src="/static/img/android.png" alt="" />
+          </a>
+        </section>
+      </div>
+
+      <p>&copy; 2025 Rolsa Technologies</p>
+    </footer>
+  </body>
+</html>

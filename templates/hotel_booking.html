@@ -1,0 +1,64 @@
+
+{% extends "base.html" %} {% block title %} Registration {% endblock %}
+
+{% block content %}
+<h1>Book Hotel Stay </h1>
+<p>Experience luxury accommodation with stunning wildlife views</p>
+<!-- use section if you want fixed layout if you want to have heading and a paragrpah with options -->
+ <!-- use div for movinglayout -->
+<section>
+    <h3>Check Availability</h3>
+    <form action="{{ url_for('hotel_booking') }}" method="post">
+        <input type="date" name="check_in" id="checkin" required>
+        <input type="date" name="check_out" id="checkout" required>
+
+        <select name="room" id="room">
+            <option value="" selected disabled>Select Room Type</option>
+            <option value="Standard">Standard</option>
+            <option value="Family">Family</option>
+            <option value="Safari">Safari View</option>
+        </select>
+        <button type="submit">Book</button>
+
+    
+    </form>
+
+    {% if total_price %}
+    <hr>
+    <p><strong>Room</strong> {{ room_type }}</p>
+    <p><strong>Nights</strong> {{ nights }}</p>
+    <p><strong>Total Price</strong> £{{ total_price }}</p>
+
+    <button id="checkout-button" type="button">Pay with Card</button>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    const stripe = Stripe("pk_test_51SwkECRe2x06jyOTPzTz4uhacoPNxCaUpqDhRZ4a3irAwP7TVIPNFPN8gJw1wIUJanOHaociGsOugAhRM1nnp43F0057wxgxWN");
+
+    document.getElementById("checkout-button").addEventListener("click", function () {
+        fetch("/create-checkout-session", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                amount: {{ stripe_amount }},
+                description: "{{ description }}"
+            })
+        })
+        .then(res => res.json())
+        .then(data => stripe.redirectToCheckout({ sessionId: data.id }));
+    });
+</script>
+
+{% endif %}
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+
+{% endif %}
+
+</section>
+
+{% endblock %}

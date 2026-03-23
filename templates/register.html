@@ -1,0 +1,37 @@
+
+{% extends "base.html" %} {% block title %} Registration {% endblock %}
+
+{% block content %}
+    
+
+     <form action="{{url_for('register')}}" method="post">
+        <h2>Create account</h2>
+        <fieldset>
+            
+            <!-- <legend>Personal Details</legend> -->
+             <p>All fields are required</p>
+             <div class="top-text">
+                <label for="name"> Your name: </label>
+                <input type="text" id="name" name="name" placeholder="First and last name" required>          
+                <label for="email" >Email:</label>
+                <input type="email" name="email" id="email" required></div>
+            <div class="top-text Password"> 
+                <label for="password" >Password:</label>
+                <input type="password" name="password" id="password" placeholder="At least six characters" required>
+                <label for="re-password">Re-enter Password:</label>
+                <input type="password" name="confirm_password" id="re-password" required>
+                </div>
+
+            <button class="button">Register</button>
+            <div class="bottom-text">
+                <p>Already have an account? <a href="{{( url_for('login'))}}">Sign in </a></p>
+
+
+            </div>
+        
+        </fieldset>
+        </form>
+
+{% endblock %}
+
+

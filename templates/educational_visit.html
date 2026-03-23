@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section>
+    <h1>Book an Educational Visit</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolorum voluptatem quia quis doloremque corporis nam aliquid quae corrupti.</p>
+</section>
+
+<section>
+    <div>  
+        <form method="post" action="/educational-visit">
+            <div>
+                <label for="school_name">School / Organisation Name: </label>
+                <input type="text" id="school_name" name="school_name" required>
+            </div>
+
+            <div>
+                <label for="contact_name">Contact Name: </label>
+                <input type="text" id="contact_name" name="contact_name" required>
+            </div>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="visit_date">Visit Date: </label>
+                <input type="date" id="visit_date" name="visit_date" required>
+
+            </div>
+            <div>
+                <label for="no_of_students">No of Students: </label>
+                <input type="number" id="no_of_students" name="students" required>
+
+            </div>
+            <div>
+                <label for="level">Student Level</label>
+                <select name="level" id="level" required> 
+                    <option value="" selected disabled>Please Select</option>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="higher">Higher Education</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">Additional Needs: </label>
+                <textarea name="message" id="messa"></textarea>
+            </div>
+            
+            <div>
+                 <button type="submit">Book</button> 
+            </div>
+
+            
+            
+        </form>
+    </div>
+</section>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        <div class="flash-message {{ category }}">
+            {{ message }}
+        </div>
+        <script>
+            // Optionally, you can style alerts based on category
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+{% endwith %}
+
+{% endblock %}
+

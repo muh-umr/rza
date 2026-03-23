@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Sign in{% endblock %} 
+
+{% block content %}
+<form method="post" action="{{ url_for('login', next=request.args.get('next')) }}">
+
+  <h2>Login to your online account</h2>
+    {% if error %}
+    <p class = "error"> {{error}} </p>
+    {% endif %}
+  <fieldset>
+    
+    <div class="top-text">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required />
+    </div>
+     <div class="top-text Password">
+    
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required />
+    </div>
+
+    <button class="button">Login</button> 
+    
+    
+    <div class="bottom-text">
+    <p>New to Rolsa?</p>
+    <p><a href="{{ url_for('register') }}">Create your RZA account</a></p></div>
+  </fieldset>
+</form>
+
+
+
+
+
+{% endblock %}
+ 

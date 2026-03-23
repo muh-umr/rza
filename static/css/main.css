@@ -1,0 +1,62 @@
+/* 
+rem   → text & spacing
+%     → widths
+vw    → viewport width
+vh    → viewport height
+ */
+
+
+body{
+    background-color: #FFFFFF;
+}
+
+.full-menu{
+    display: flex;               /* enable flex */
+    justify-content: space-between;
+    align-items: center;
+    gap: 25%;
+}
+
+header nav .full-menu div {
+    display: flex;             
+    gap: 2rem;  
+    white-space: nowrap; 
+}
+
+h eader {
+    display: flex;
+    /* padding: .4% 8% 0 8%; */
+}
+header nav{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    
+    
+}
+
+header nav a{
+    text-decoration: none;
+    padding: 6px 10px 6px 10px;
+    margin-top: 5px;
+    color: black;
+    border-radius: 6px;
+}
+/* #F1FDF4 */
+header nav a:hover{
+    background-color: #F1FDF4;
+    color: #009A00;
+
+}
+header nav a.active {
+  background: #00850d;
+  
+}
+
+i.bi {
+  font-size: 24px; /* bigger */
+  color: green;    /* custom color */
+}
+
+

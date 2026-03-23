@@ -1,0 +1,12 @@
+{% if current_user.is_authenticated %}
+ {% else %}
+         <nav>
+        <a href="/">Home</a>
+        <a href="/zoo_booking">Zoo Tickets</a>
+        <a href="/hotel_booking">Hotel Booking</a>
+        <a href="/dashboard">Dashboard</a>
+        <!-- <a href="/register">Register</a> -->
+        <a href="/login">Sign in</a>
+
+    </nav>
+    {% endif%}

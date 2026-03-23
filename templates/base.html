@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Riget Zoo Adventures</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script>
+
+<header>
+    
+    <nav>
+      <div class="full-menu">
+        <i class="bi bi-tree"></i>
+        <div>
+        <a href="/">Home</a>
+        <a href="/zoo_booking">Zoo Tickets</a>
+        <a href="/hotel_booking">Hotel Booking</a>
+        <a href="/dashboard">Dashboard</a>
+        <!-- <a href="/register">Register</a> -->
+        
+        </div>
+        <a href="/login">Sign in</a>
+        </div>
+        
+    </nav>
+
+     
+</header>
+    <main>
+        {% block content %}{% endblock %}
+        
+    </main>
+     <footer>
+      <div class="footer-content">
+        <section>
+          <h3>About RZA</h3>
+          <p>Riget Zoo Adventures offers unforgettable wildlife experiences, luxury accommodation, and educational programs.</p>
+        </section>
+
+        <section>
+          <h3>Quick Links</h3>
+          <a href="">Zoo Tickets</a>
+          <a href="">Hotel Booking</a>
+          <a href="/educational-visit">Educational Visits</a>
+        </section>
+        <section>
+          <h3>Contact</h3>
+          <p>Mon-Fri: 00:00-00:00</p>
+          <p>Weekends: 00:00-00:00</p>
+          <p>Last entry: 1 hour before closing</p>
+          
+        </section>
+        <section>
+          <h3>Opening Hours</h3>
+          <a href="">Phone: +44 1234567890</a>
+          <a href="">Email: contact@rza.com</a>
+          <a href="">Address: Wildlife Park Road</a>
+          
+        </section>
+      </div>
+
+      <p>&copy; 2026 RZA</p>
+    </footer>
+
+  </body>
+</html>
